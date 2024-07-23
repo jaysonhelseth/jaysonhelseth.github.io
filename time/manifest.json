@@ -13,8 +13,8 @@
 			"sizes": "512x512"
 		}
 	],
-	"start_url": "/",
+	"start_url": "jaysonhelseth.github.io/time/",
 	"display": "standalone",
-	"scope": "/",
+	"scope": "jaysonhelseth.github.io/",
 	"description": "Time PWA"
 }
