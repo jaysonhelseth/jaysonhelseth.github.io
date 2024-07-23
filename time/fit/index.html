@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="lib/bootstrap.min.css">
+    <title>Lap Counter</title>
+
+    <style>
+      .btn-block { height: 120px; }
+      body { 
+        background-color: black;
+        color: white;
+      }
+      .monofont { font-family: monospace; }
+      .card { background-color: gray; }
+      .text-muted { color: white !important; }
+      #distance { font-size: 4.8em; }
+      #laps { font-size: 9em; }
+    </style>
+  </head>
+  <body>
+    
+    <div class="container-fluid" style="padding-top: 15px;">
+      <div class="card text-center">
+        <div class="card-body">
+          <h5 class="card-title">Distance</h5>
+          <h6 class="card-subtitle mb-2 text-muted">In Miles</h6>
+          <p class="card-text monofont" id="distance">0.00</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid" style="padding-top: 15px;">
+      <div class="card text-center">
+        <div class="card-body">
+          <h5 class="card-title">Laps</h5>
+          <p class="card-text monofont" id="laps">0</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="fixed-bottom" style="padding-bottom: 15px;">
+      <div class="container-fluid">
+        <button type="button" class="btn btn-primary btn-lg btn-block" id="lapButton">Lap</button>
+      </div>    
+    </div>
+
+    <script src="lib/jquery-3.5.1.slim.min.js"></script>
+    <script src="lib/bootstrap.bundle.min.js"></script>
+    <script>
+        let laps = 0;
+        let lapEl = document.getElementById("laps");
+        let distance = 0.00;
+        let distanceEl = document.getElementById("distance");
+
+        document.getElementById("lapButton").onclick = (evt) => {
+            laps++;
+            distance = (laps * 98.5 / 5280.0).toFixed(2);
+
+            lapEl.innerText = laps;
+            distanceEl.innerText = distance;
+        }
+    </script>
+  </body>
+</html>

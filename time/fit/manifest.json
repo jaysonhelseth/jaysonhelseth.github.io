@@ -1,0 +1,20 @@
+{
+	"short_name": "Fitness",
+	"name": "Fitness",
+	"icons": [
+		{
+			"src": "gwibber192.png",
+			"type": "image/png",
+			"sizes": "192x192"
+		},
+		{
+			"src": "copyleft512.png",
+			"type": "image/png",
+			"sizes": "512x512"
+		}
+	],
+	"start_url": "/fit",
+	"display": "standalone",
+	"scope": "/fit",
+	"description": "Fitness PWA"
+}
