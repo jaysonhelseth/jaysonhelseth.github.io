@@ -37,8 +37,30 @@
     }
     adjust();
 
-    addEventListener("resize", adjust);
-    addEventListener("orientationchange", adjust);
+    // Debounce function to prevent multiple rapid calls
+    function debounce(func, wait) {
+        let timeout;
+        return function executedFunction(...args) {
+            const later = () => {
+                clearTimeout(timeout);
+                func(...args);
+            };
+            clearTimeout(timeout);
+            timeout = setTimeout(later, wait);
+        };
+    }
+
+    // Create a debounced version of adjust
+    const debouncedAdjust = debounce(adjust, 100);
+
+    // Handle both resize and orientation changes
+    window.addEventListener("resize", debouncedAdjust);
+    window.addEventListener("orientationchange", () => {
+        // Force immediate adjustment on orientation change
+        adjust();
+        // Then debounce any subsequent adjustments
+        debouncedAdjust();
+    });
 
     //Update Time
     setInterval(function() {
