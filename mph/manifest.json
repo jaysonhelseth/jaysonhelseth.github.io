@@ -2,7 +2,7 @@
     "name": "Speed Tracker PWA",
     "short_name": "Speed Tracker",
     "description": "Track your speed using browser geolocation",
-    "start_url": "/",
+    "start_url": "/mph/",
     "display": "standalone",
     "background_color": "#f5f5f5",
     "theme_color": "#2196f3",
